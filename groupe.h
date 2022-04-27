@@ -6,13 +6,15 @@
 
 class Groupe {
 	// attribut
-	char lettre_;
-	vector<Eleve> tabMembre_;
+	string lettre_;
+	
 	
 
 	//methode :
 public:
-	Groupe( const char lettre);
-	inline char getLettre() const { return lettre_; };;
+	vector<Eleve> tabMembre_;
+	Groupe(  string lettre);
+	inline string getLettre() const { return lettre_; };
+	void afficheGroupe();
 	//créer la fonction affichage trombi
 };

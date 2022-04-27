@@ -15,9 +15,9 @@ class Eleve {
 
 	//methode :
 public :
-	Eleve();
-	inline string getNom() const { return nom_; };
+	Eleve(string nom="temp", string prenom = "temp", string coor = "temp");
 	inline string getPrenom() const { return prenom_; };
+	inline string getNom() const { return nom_; };
 	inline string getCoordonnee() const { return coordonnee_vignette_; };
 	 
 

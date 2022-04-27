@@ -19,29 +19,37 @@ int main()
         cout << "Choix (lettre en majuscule) : ";
         cin >> choix;
         cout << endl;
-        
+         string s(1, choix);
         switch (choix)
         {
         case 'A':
-        {Groupe gr(choix);
+        {
+            Groupe gr(s);
+            gr.afficheGroupe();
         break;
         }
         case 'B': {
-            Groupe gr(choix);
+            
+            Groupe gr(s);
+            gr.afficheGroupe();
             break; }
 
         case 'C': {
-            Groupe gr(choix);
+
+            Groupe gr(s);
+            gr.afficheGroupe();
             break;
         }
 
         case 'D': {
-                Groupe gr(choix);
+                Groupe gr(s);
+                gr.afficheGroupe();
                 break;
         }
 
         case 'E': {
-            Groupe gr(choix);
+            Groupe gr(s);
+            gr.afficheGroupe();
             break;
         }
 
@@ -54,7 +62,7 @@ int main()
         
         }
 
-    } while ((choix != 'A' ) &&( choix != 'B') && (choix != 'C') && (choix != 'D') && (choix != 'E') && (choix != 'Q'));
+    } while ((choix != 'A') && (choix != 'B') && (choix != 'C') && (choix != 'D') && (choix != 'E') && (choix != 'Q'));
 
     return 0;
 }

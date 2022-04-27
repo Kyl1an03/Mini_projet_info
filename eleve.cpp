@@ -2,8 +2,10 @@
 #include <iostream>
 using namespace std;
 
-Eleve::Eleve()
+Eleve::Eleve(string nom , string prenom , string coor )
 {
-	//recuperer le nom, prenom, la vignette de l'étudiant grace au fichier
+	nom_ = nom;
+	prenom_ = prenom;
+	coordonnee_vignette_=coor;
 	
 }
