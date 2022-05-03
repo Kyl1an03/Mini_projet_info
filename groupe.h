@@ -8,13 +8,15 @@ class Groupe {
 	// attribut
 	string lettre_;
 	
-	
 
 	//methode :
 public:
+	vector<Eleve> elevePresent_;
+	vector<Eleve> eleveAbsent_;
 	vector<Eleve> tabMembre_;
 	Groupe(  string lettre);
 	inline string getLettre() const { return lettre_; };
 	void afficheGroupe();
+	void editFeuilleAppel();
 	//créer la fonction affichage trombi
 };

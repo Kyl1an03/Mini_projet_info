@@ -3,7 +3,6 @@
 #include <iostream>
 using namespace std;
 
-
 Groupe::Groupe(string lettre)
 {
 	lettre_ = lettre;
@@ -35,6 +34,7 @@ Groupe::Groupe(string lettre)
 			{
 				Eleve temp(temp_nom, temp_prenom, temp_coord);
 				tabMembre_.push_back(temp);
+				elevePresent_.push_back(temp);
 			}
 		}
 		
@@ -56,3 +56,6 @@ Groupe::Groupe(string lettre)
 
 
 }
+
+
+ 
