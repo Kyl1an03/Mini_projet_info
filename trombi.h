@@ -14,4 +14,5 @@ public:
 	void menu();
 	inline string getDate() { return date_; };
 	void editFeuilleAppel(Groupe groupe);
+	void afficheTrombi(Groupe groupe);
 };

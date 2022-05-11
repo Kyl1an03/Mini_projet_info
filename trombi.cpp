@@ -1,9 +1,15 @@
 #include"trombi.h"
 #include <fstream>
+#include <SFML/Graphics.hpp>
+#include <iostream>
+#include<vector>
+using namespace std;
 Trombi::Trombi()
 {
     cout << " Date du jour : " << endl;
     cin>> date_;
+  
+        
 }
 
 // Creation du fichier.txt
@@ -71,35 +77,35 @@ void Trombi::menu()
         case 'A':
         {
             Groupe gr(s);
-            gr.afficheGroupe();
+           afficheTrombi(gr);
             editFeuilleAppel(gr);
             break;
         }
         case 'B': {
 
             Groupe gr(s);
-            gr.afficheGroupe();
+            afficheTrombi(gr);
             editFeuilleAppel(gr);
             break; }
 
         case 'C': {
 
             Groupe gr(s);
-            gr.afficheGroupe();
+            afficheTrombi(gr);
             editFeuilleAppel(gr);
             break;
         }
 
         case 'D': {
             Groupe gr(s);
-            gr.afficheGroupe();
+            afficheTrombi(gr);
             editFeuilleAppel(gr);
             break;
         }
 
         case 'E': {
             Groupe gr(s);
-            gr.afficheGroupe();
+            afficheTrombi(gr);
             editFeuilleAppel(gr);
             break;
         }
@@ -117,3 +123,119 @@ void Trombi::menu()
 
 
  }
+
+void Trombi::afficheTrombi(Groupe groupe)
+{
+        int len,compteur;
+        sf::RenderWindow window(sf::VideoMode(1600, 1000), "SFML works!");
+        sf::CircleShape shape(100.f);
+        sf::Texture image;
+        sf::Sprite s_image;
+        vector <sf::Sprite> tab_img;
+
+        string image_coord;
+        
+        // Image de la premiere ligne
+        for (int i = 0; i < 5; i++)
+        {
+            image_coord = groupe.tabMembre_[i].getCoordonnee();
+            if (!image.loadFromFile(image_coord)){ cout << " Erreur" << endl; }
+            else
+            { 
+                image.setSmooth(true);
+                s_image.setTexture(image);
+                s_image.setScale(0.4, 0.4);
+                s_image.setPosition(250 +i*250, 0);
+                tab_img.push_back(s_image);
+            }
+        //image de la deuxieme ligne
+            compteur = 0;
+            for (int i = 5; i < 10; i++)
+            {
+                image_coord = groupe.tabMembre_[i].getCoordonnee();
+                if (!image.loadFromFile(image_coord)) { cout << " Erreur" << endl; }
+                else
+                {
+                    
+                    image.setSmooth(true);
+                    s_image.setTexture(image);
+                    s_image.setScale(0.4, 0.4);
+                    s_image.setPosition(250 + compteur * 250, 200);
+                    tab_img.push_back(s_image);
+                    compteur++;
+                }
+            }
+
+            compteur = 0;
+        // Image de la troisieme ligne
+            for (int i = 10; i < 15; i++)
+            {
+                image_coord = groupe.tabMembre_[i].getCoordonnee();
+                if (!image.loadFromFile(image_coord)) { cout << " Erreur" << endl; }
+                else
+                {
+                    image.setSmooth(true);
+                    s_image.setTexture(image);
+                    s_image.setScale(0.4, 0.4);
+                    s_image.setPosition(250 +compteur * 250, 400);
+                    tab_img.push_back(s_image);
+                    compteur++;
+                }
+            }
+        // Image de la quatrieme ligne
+            compteur = 0;
+            for (int i = 15; i < 20; i++)
+            {
+                image_coord = groupe.tabMembre_[i].getCoordonnee();
+                if (!image.loadFromFile(image_coord)) { cout << " Erreur" << endl; }
+                else
+                {
+                    image.setSmooth(true);
+                    s_image.setTexture(image);
+                    s_image.setScale(0.4, 0.4);
+                    s_image.setPosition(250+compteur * 250, 600);
+                    tab_img.push_back(s_image);
+                    compteur++;
+                }
+            }
+        //Image de la cinquieme ligne
+            compteur = 0;
+            for (int i = 20; i < groupe.tabMembre_.size(); i++)
+            {
+                image_coord = groupe.tabMembre_[i].getCoordonnee();
+                if (!image.loadFromFile(image_coord)) { cout << " Erreur" << endl; }
+                else
+                {
+                    image.setSmooth(true);
+                    s_image.setTexture(image);
+                    s_image.setScale(0.4, 0.4);
+                    s_image.setPosition(250 +compteur * 250, 800);
+                    tab_img.push_back(s_image);
+                    compteur++;
+                }
+            }
+
+        }
+
+
+
+        
+
+        len = size(tab_img);
+
+        shape.setFillColor(sf::Color::Green);
+        while (window.isOpen())
+        {
+            sf::Event event;
+            while (window.pollEvent(event))
+            {
+                if (event.type == sf::Event::Closed)
+                    window.close();
+            }
+            for (int i = 0; i < len; i++)
+            {
+                window.draw(tab_img[i]);
+            }
+            window.display();
+        }
+}
