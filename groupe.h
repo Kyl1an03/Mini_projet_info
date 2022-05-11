@@ -11,7 +11,7 @@ class Groupe {
 
 	//methode :
 public:
-	vector<Eleve> elevePresent_;
+	vector<Eleve> elevePresent_; //mettre des pointeurs vers eleves car association
 	vector<Eleve> eleveAbsent_;
 	vector<Eleve> tabMembre_;
 	Groupe(  string lettre);

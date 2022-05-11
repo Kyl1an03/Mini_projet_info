@@ -11,7 +11,7 @@ class Eleve {
 	string prenom_;
 	string coordonnee_vignette_;
 
-	//methode :
+	//methodes :
 public :
 	Eleve(string nom="temp", string prenom = "temp", string coor = "temp");
 	inline string getPrenom() const { return prenom_; };

@@ -22,19 +22,20 @@ Groupe::Groupe(string lettre)
 	else
 	{
 		cout << "fichier ouvert" << endl;
+		//recuperation des données du csv
 		for (unsigned int i = 1; i < 127; i++)
 		{
-			getline(fich, temp_id , ';');
-			getline(fich, temp_usr, ';');
-			getline(fich, temp_nom, ';');
-			getline(fich, temp_prenom, ';');
-			getline(fich, temp_grp, ';');
-			getline(fich, temp_coord);
+			getline(fich, temp_id , ';'); //1ere colonne
+			getline(fich, temp_usr, ';'); //2iem colonne
+			getline(fich, temp_nom, ';'); //3 ieme colonne
+			getline(fich, temp_prenom, ';'); //4 iemee colonne
+			getline(fich, temp_grp, ';'); //5 ieme colonne
+			getline(fich, temp_coord); //6 ieme colonne
 			if ( temp_grp == lettre)
 			{
-				Eleve temp(temp_nom, temp_prenom, temp_coord);
+				Eleve temp(temp_nom, temp_prenom, temp_coord); // creation de l'eleve 
 				tabMembre_.push_back(temp);
-				elevePresent_.push_back(temp);
+				elevePresent_.push_back(temp);// test de la feuille
 			}
 		}
 		
